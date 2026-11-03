@@ -18,10 +18,10 @@ public class Product
             throw new ArgumentException("SKU cannot be empty.");
 
         if (price <= 0)
-            throw new ArgumentOutOfRangeException("Price must be greater than zero.");
+            throw new ArgumentOutOfRangeException(nameof(price),"Price must be greater than zero.");
 
         if (minimumStockLevel < 0)
-            throw new ArgumentOutOfRangeException("Minimum stock level cannot be negative.");
+            throw new ArgumentOutOfRangeException(nameof(minimumStockLevel),"Minimum stock level cannot be negative.");
 
         Name = name;
         SKU = sku;
@@ -33,7 +33,7 @@ public class Product
     public void UpdatePrice(decimal newPrice)
     {
         if (newPrice <= 0)
-            throw new ArgumentOutOfRangeException("New price must be greater than zero.");
+            throw new ArgumentOutOfRangeException(nameof(newPrice),"New price must be greater than zero.");
 
         Price = newPrice;
     }

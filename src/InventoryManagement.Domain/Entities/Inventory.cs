@@ -9,7 +9,7 @@ public class Inventory
     public Inventory(int productId)
     {
         if (productId <= 0)
-            throw new ArgumentOutOfRangeException("Product Id must be greater than zero.");
+            throw new ArgumentOutOfRangeException(nameof(productId),"Product ID must be greater than zero.");
 
         ProductId = productId;
         Quantity = 0;
@@ -18,7 +18,7 @@ public class Inventory
     public void AddStock(int quantity)
     {
         if (quantity <= 0)
-            throw new ArgumentOutOfRangeException("Stock quantity must be greater than zero.");
+            throw new ArgumentOutOfRangeException(nameof(quantity),"Stock quantity must be greater than zero.");
 
         Quantity += quantity;
     }
@@ -26,7 +26,7 @@ public class Inventory
     public void RemoveStock(int quantity)
     {
         if (quantity <= 0)
-            throw new ArgumentOutOfRangeException("Stock removal quantity must be greater than zero.");
+            throw new ArgumentOutOfRangeException(nameof(quantity),"Stock removal quantity must be greater than zero.");
 
         if (quantity > Quantity)
             throw new InvalidOperationException("You cannot remove more than the current stock.");
